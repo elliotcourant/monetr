@@ -1,4 +1,5 @@
 {
+  "last-release-sha": "58686a52cf486ea97a1ea67b7158963cf01f4d23",
   "packages": {
     ".": {
       "package-name": "monetr",
@@ -6,7 +7,8 @@
       "changelog-path": "CHANGELOG.md",
       "release-type": "simple",
       "bump-minor-pre-major": false,
-      "bump-patch-for-minor-pre-major": false,
+      "bump-patch-for-minor-pre-major": true,
+      "monorepo-tags": false,
       "draft": false,
       "prerelease": false
     }
