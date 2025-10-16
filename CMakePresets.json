@@ -8,7 +8,7 @@
   "configurePresets": [
     {
       "name": "default",
-      "displayName": "Default Config",
+      "displayName": "Default Config Soemthing",
       "description": "Default build good for basic tasks",
       "generator": "Unix Makefiles",
       "binaryDir": "${sourceDir}/build",
