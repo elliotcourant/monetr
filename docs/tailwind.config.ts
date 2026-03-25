@@ -2,11 +2,6 @@ import type { Config } from 'tailwindcss';
 
 import baseConfig from '../tailwind.config.ts';
 
-import { resolve } from 'path';
-
-const root = resolve(__dirname, '../');
-const uiDir = resolve(root, 'interface/src');
-
 const config: Config = {
   ...baseConfig,
   theme: {
@@ -60,11 +55,9 @@ const config: Config = {
     },
   },
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,md,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,md,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,md,mdx}',
-    './theme.config.tsx',
-    `${uiDir}/**/*.@(js|jsx|ts|tsx)`,
+    './docs/**/*.{js,ts,jsx,tsx,md,mdx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './theme/**/*.{js,ts,jsx,tsx}',
   ],
 };
 
