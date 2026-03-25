@@ -33,11 +33,6 @@ export default defineConfig({
         content: 'https://discord.gg/68wTCXrhuq',
       },
     ],
-    nav: [
-      { text: 'Pricing', link: '/pricing' },
-      { text: 'Blog', link: '/blog' },
-      { text: 'Documentation', link: '/documentation' },
-    ],
     footer: {
       message: '',
     },
