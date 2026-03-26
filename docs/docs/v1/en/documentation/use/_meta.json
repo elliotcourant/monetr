@@ -3,7 +3,7 @@
   { "type": "file", "name": "funding_schedule", "label": "Funding Schedules" },
   { "type": "file", "name": "expense", "label": "Expenses" },
   { "type": "file", "name": "goal", "label": "Goals" },
-  { "type": "file", "name": "transactions", "label": "Transactions" },
+  { "type": "dir", "name": "transactions", "label": "Transactions" },
   { "type": "file", "name": "free_to_use", "label": "Free-To-Use" },
   { "type": "file", "name": "forecasting", "label": "Forecasting" },
   { "type": "dir", "name": "security", "label": "Security" },

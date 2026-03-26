@@ -1,9 +1,21 @@
+@import 'katex/dist/katex.min.css';
+@import '@fontsource-variable/inter';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import 'katex/dist/katex.min.css';
-@import '@fontsource-variable/inter';
+/* KaTeX's katex-mathml is for screen readers only — visually hidden.
+   Tailwind Preflight with important:true can override KaTeX's clip-based hiding. */
+.katex .katex-mathml {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+}
 
 /* Force dark mode CSS variables on all selectors */
 :root,
@@ -20,12 +32,12 @@
   --rp-c-text-2: #a1a1aa;
   --rp-c-text-3: rgba(161, 161, 170, 0.38);
   --rp-c-text-4: rgba(161, 161, 170, 0.18);
-  --rp-c-brand: #4E1AA0;
-  --rp-c-brand-light: #9461E5;
-  --rp-c-brand-lighter: #CFB9F4;
-  --rp-c-brand-dark: #5D1FC1;
-  --rp-c-brand-darker: #3E157F;
-  --rp-c-brand-tint: rgba(78, 26, 160, 0.16);
+  --rp-c-brand: #ebebeb;
+  --rp-c-brand-light: #ffffff;
+  --rp-c-brand-lighter: #ffffff;
+  --rp-c-brand-dark: #d4d4d8;
+  --rp-c-brand-darker: #a1a1aa;
+  --rp-c-brand-tint: rgba(255, 255, 255, 0.1);
   --rp-c-link: #AC84EB;
   --rp-home-background-bg: #111111;
   --rp-font-family-base: 'Inter Variable', -apple-system, BlinkMacSystemFont,
