@@ -4,6 +4,7 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeMathPostProcess from './plugins/rehypeMathPostProcess.js';
+import pluginSearchIndexCleanup from './plugins/searchIndexCleanup.js';
 import path from 'path';
 
 const branch = process.env.GIT_BRANCH ?? 'main';
@@ -65,7 +66,10 @@ export default defineConfig({
       ],
     },
   },
-  plugins: [pluginSitemap({ siteUrl: 'https://monetr.app' })],
+  plugins: [
+    pluginSitemap({ siteUrl: 'https://monetr.app' }),
+    pluginSearchIndexCleanup(),
+  ],
   builderConfig: {
     plugins: [pluginSass()],
     source: {
