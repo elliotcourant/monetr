@@ -118,9 +118,9 @@ term frequency of each word is calculated. Taking the number of times that speci
 by the number of words in the document. This term frequency is then stored for later use. We also increment the global
 counts for each word.
 
-```text
+$$
 \text{tf}_{word} = \frac{\text{frequency within document}_{word}}{\text{number of unique words within document}}
-```
+$$
 
 <Callout type="info">
   **Note**: monetr is dividing the frequency of the word within the document by the number of unique words in the
@@ -130,9 +130,9 @@ counts for each word.
 
 Once all of the documents have been added, the "idf" can be calculated. This is done using the following formula.
 
-```text
-\text{idf}_{word} = \log(\frac{\text{number of documents}} {(\text{count}_{word} + 1)})
-```
+$$
+\text{idf}_{word} = \log\left(\frac{\text{number of documents}}{\text{count}_{word} + 1}\right)
+$$
 
 <Callout type="info">
   **Note**: This isn't quite the same weighting scheme as __inverse document frequency__ or __inverse document frequency
@@ -148,9 +148,9 @@ well as a "vector" which monetr uses for the next stage. The tf-idf is per word,
 we look up what the idf of that word is that we calculated above and we multiply it by the term frequency inside that
 specific document:
 
-```text
+$$
 \text{tfidf}_{word} = \text{tf}_{word} \times \text{idf}_{word}
-```
+$$
 
 Now monetr knows how much each word in each transaction is "worth" and it needs to turn this data into a way of finding
 similar transactions. Simply, we can take all of these values of all of these words and assign each unique word a
@@ -208,25 +208,24 @@ Once we have this vector built we modify the vector using [Euclidean
 normalization](https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm)[^1]. We do this to make the data behave
 more sanely when it comes to the following DBSCAN algorithm that will be discussed below.
 
-To begin, we represent our vector above as **x**:
+To begin, we represent our vector above as $\mathbf{x}$:
 
-```text
+$$
 \mathbf{x} = [x_1, x_2, \dots, x_n]
-```
+$$
 
-Given the vector above where `n` is divisible by 16, we can use SIMD for the following operations. Create a sum of the
+Given the vector above where $n$ is divisible by 16, we can use SIMD for the following operations. Create a sum of the
 squared values of the vector and calculate it's square root. This is our "norm" that we'll use below.
 
-```text
+$$
 \|\mathbf{x}\|_2 = \sqrt{\sum_{i=1}^{n} x_i^2}
-```
+$$
 
 Then change the original vector, dividing each value by the "norm" we derived from above.
 
-```text
-\hat{x}_i = \frac{x_i}{\|\mathbf{x}\|_2}
-\quad\text{for } i = 1, \dots, n
-```
+$$
+\hat{x}_i = \frac{x_i}{\|\mathbf{x}\|_2} \quad\text{for } i = 1, \dots, n
+$$
 
 This normalization makes the vector more uniform while preserving the ratios between the values within that vector.
 For example, consider the original vector above. The result after normalization would be:

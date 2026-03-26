@@ -2,16 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'katex/dist/katex.min.css';
 @import '@fontsource-variable/inter';
 
 /* Force dark mode CSS variables on all selectors */
 :root,
 :where(html.rp-dark),
 :where(html:not(.rp-dark)) {
-  --rp-c-bg: #19161f;
+  --rp-c-bg: #111111;
   --rp-c-bg-soft: #27272a;
   --rp-c-bg-mute: #3f3f46;
-  --rp-c-bg-alt: #131118;
+  --rp-c-bg-alt: #0a0a0a;
   --rp-c-divider: rgba(63, 63, 70, 0.65);
   --rp-c-divider-light: rgba(63, 63, 70, 0.48);
   --rp-c-text-0: #ffffff;
@@ -26,6 +27,7 @@
   --rp-c-brand-darker: #3E157F;
   --rp-c-brand-tint: rgba(78, 26, 160, 0.16);
   --rp-c-link: #AC84EB;
+  --rp-home-background-bg: #111111;
   --rp-font-family-base: 'Inter Variable', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, sans-serif;
 }
@@ -78,7 +80,7 @@ img {
 .feature {
   &.free-to-use {
     border-radius: 0.75rem;
-    background-color: #19161f;
+    background-color: #111111;
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);

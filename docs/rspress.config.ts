@@ -1,6 +1,9 @@
 import { defineConfig } from '@rspress/core';
 import { pluginSitemap } from '@rspress/plugin-sitemap';
 import { pluginSass } from '@rsbuild/plugin-sass';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import rehypeMathPostProcess from './plugins/rehypeMathPostProcess.js';
 import path from 'path';
 
 const branch = process.env.GIT_BRANCH ?? 'main';
@@ -49,6 +52,19 @@ export default defineConfig({
         ]
       : []),
   ],
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex, rehypeMathPostProcess],
+    shiki: {
+      langs: [
+        {
+          name: 'math',
+          scopeName: 'source.math',
+          patterns: [{ match: '.', name: 'text.math' }],
+        },
+      ],
+    },
+  },
   plugins: [pluginSitemap({ siteUrl: 'https://monetr.app' })],
   builderConfig: {
     plugins: [pluginSass()],

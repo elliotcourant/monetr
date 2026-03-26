@@ -13,8 +13,8 @@ function hexToRgb(hex: string) {
 }
 
 export function BackgroundGradientAnimation(): JSX.Element {
-  const gradientBackgroundStart = hexToRgb('#19161f');
-  const gradientBackgroundEnd = hexToRgb('#19161f');
+  const gradientBackgroundStart = hexToRgb('#111111');
+  const gradientBackgroundEnd = hexToRgb('#111111');
   const firstColor = hexToRgb('#3b82f6');
   const secondColor = hexToRgb('#f056a3');
   const thirdColor = hexToRgb('#2cedff');
