@@ -54,8 +54,8 @@ export default function GithubStars(props: GithubStarsProps): JSX.Element {
     <a
       className='group h-[54px] flex shrink-0 flex-row items-center rounded-lg border border-dark-monetr-border overflow-hidden transition-opacity no-underline'
       href='https://github.com/monetr/monetr'
-      target='_blank'
       rel='noreferrer'
+      target='_blank'
     >
       <div className='py-1 px-3 bg-zinc-800 h-full flex gap-2 items-center'>
         <svg

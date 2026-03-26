@@ -1,15 +1,16 @@
-import { Layout as BasicLayout, Banner } from '@rspress/core/theme-original';
 import { useEffect } from 'react';
 
-import QueryClientWrapper from '../components/QueryClientWrapper';
 import GithubStars from '../components/GithubStars';
+import QueryClientWrapper from '../components/QueryClientWrapper';
 import SignIn from '../components/SignIn';
+
+import { Banner, Layout as BasicLayout } from '@rspress/core/theme-original';
 
 import './index.css';
 
 function NavTitle() {
   return (
-    <a href='/' className='flex items-center gap-3 no-underline'>
+    <a className='flex items-center gap-3 no-underline'href='/' >
       <img alt='monetr logo' className='w-8 h-8 lg:w-10 lg:h-10 rounded-none' src='/logo.svg' />
       <div className='flex items-center justify-center ml-1'>
         <span className='absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl opacity-50 from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-2xl lg:text-3xl box-content font-extrabold text-transparent text-center select-none'>
@@ -40,7 +41,7 @@ function Footer() {
           © {new Date().getFullYear()} monetr LLC.
         </p>
         <div className='gap-2 sm:gap-4 flex flex-col sm:flex-row'>
-          <a className='hover:underline text-sm text-zinc-400' href='https://status.monetr.app/' target='_blank' rel='noreferrer'>
+          <a className='hover:underline text-sm text-zinc-400' href='https://status.monetr.app/' rel='noreferrer'target='_blank' >
             Status
           </a>
           <a className='hover:underline text-sm text-zinc-400' href='/contact'>
@@ -68,6 +69,7 @@ const Layout = () => {
   return (
     <QueryClientWrapper>
       <BasicLayout
+        afterNavMenu={<NavExtras />}
         beforeNav={
           <Banner
             href='/blog/2025-12-31-similar-transactions'
@@ -75,9 +77,8 @@ const Layout = () => {
             storageKey='monetr-launched-january-2025'
           />
         }
-        navTitle={<NavTitle />}
-        afterNavMenu={<NavExtras />}
         bottom={<Footer />}
+        navTitle={<NavTitle />}
       />
     </QueryClientWrapper>
   );

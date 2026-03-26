@@ -1,5 +1,6 @@
-import { Tabs as RspressTabs, Tab } from '@rspress/core/theme';
 import type { ReactNode } from 'react';
+
+import { Tabs as RspressTabs, Tab } from '@rspress/core/theme';
 
 interface TabsProps {
   items: string[];

@@ -1,5 +1,6 @@
-import { Callout as RspressCallout } from '@rspress/core/theme';
 import type { ReactNode } from 'react';
+
+import { Callout as RspressCallout } from '@rspress/core/theme';
 
 interface CalloutProps {
   type?: 'info' | 'warning' | 'error' | 'default';

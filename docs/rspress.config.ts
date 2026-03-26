@@ -1,11 +1,12 @@
-import { defineConfig } from '@rspress/core';
-import { pluginSitemap } from '@rspress/plugin-sitemap';
-import { pluginSass } from '@rsbuild/plugin-sass';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 import rehypeMathPostProcess from './plugins/rehypeMathPostProcess.js';
 import pluginSearchIndexCleanup from './plugins/searchIndexCleanup.js';
+
+import { pluginSass } from '@rsbuild/plugin-sass';
+import { defineConfig } from '@rspress/core';
+import { pluginSitemap } from '@rspress/plugin-sitemap';
 import path from 'path';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 const branch = process.env.GIT_BRANCH ?? 'main';
 

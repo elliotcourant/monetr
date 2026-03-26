@@ -10,9 +10,10 @@
 //
 // Inline math ($...$) is unaffected — Shiki only processes <pre><code> blocks,
 // not standalone <code> elements, so rehype-katex handles inline math fine.
-import katex from 'katex';
-import { visit, SKIP } from 'unist-util-visit';
+
 import { fromHtml } from 'hast-util-from-html';
+import katex from 'katex';
+import { SKIP, visit } from 'unist-util-visit';
 
 function isMathCodeBlock(node) {
   if (node.tagName !== 'pre') return false;

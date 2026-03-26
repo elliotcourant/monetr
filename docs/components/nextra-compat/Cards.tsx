@@ -11,8 +11,8 @@ interface CardProps {
 function Card({ title, href, icon, children, arrow }: CardProps) {
   return (
     <a
-      href={href}
       className='block p-4 rounded-lg border border-zinc-700 hover:border-zinc-500 transition-colors bg-black bg-opacity-20 backdrop-blur-sm no-underline text-inherit'
+      href={href}
     >
       {icon && <span className='text-2xl mb-2 block'>{icon}</span>}
       <h3 className='text-lg font-semibold'>
