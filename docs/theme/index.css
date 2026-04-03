@@ -49,6 +49,17 @@
   backdrop-filter: saturate(150%) blur(12px);
 }
 
+/* Wider search button */
+.rp-nav__right {
+  min-width: 0;
+}
+
+.rp-search-button {
+  width: 160px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
 /* Hide dark mode toggle since we force dark */
 .rp-switch-appearance {
   display: none !important;
