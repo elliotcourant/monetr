@@ -44,6 +44,11 @@
     'Segoe UI', Roboto, sans-serif;
 }
 
+.rp-nav {
+  background: rgba(17, 17, 17, 0.7) !important;
+  backdrop-filter: saturate(150%) blur(12px);
+}
+
 /* Hide dark mode toggle since we force dark */
 .rp-switch-appearance {
   display: none !important;
