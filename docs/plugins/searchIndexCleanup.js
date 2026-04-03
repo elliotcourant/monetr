@@ -23,6 +23,8 @@ function cleanContent(text) {
     .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
     // Convert markdown links [text](url) → text
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    // Strip markdown heading markers: ### Heading → Heading
+    .replace(/^#{1,6}\s+/gm, '')
     // Remove leftover JSX-like attribute lines (e.g. title="..." href="..." on their own line)
     .replace(/^\s*\w+="[^"]*"\s*$/gm, '')
     // Collapse multiple blank lines into one
