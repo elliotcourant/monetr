@@ -1,4 +1,4 @@
-import { Tabs } from '@monetr/docs/components/nextra-compat/Tabs'
+import { Tabs, Tab } from '@rspress/core/theme'
 
 # Documentation
 
@@ -30,14 +30,14 @@ make docs
 
 If you want to work on the documentation in real time locally you can run the following command:
 
-<Tabs items={["GNUMake", "pnpm"]}>
-    <Tabs.Tab>
+<Tabs values={["GNUMake", "pnpm"]}>
+    <Tab>
         ```shell title="Shell"
         # Will install any dependencies and prepare the local development environment for docs
         make develop-docs
         ```
-    </Tabs.Tab>
-    <Tabs.Tab>
+    </Tab>
+    <Tab>
         ```shell title="Shell"
         # Install dependencies manually
         pnpm install
@@ -45,7 +45,7 @@ If you want to work on the documentation in real time locally you can run the fo
         # Start the documentation server
         pnpm -r -filter docs run dev
         ```
-    </Tabs.Tab>
+    </Tab>
 </Tabs>
 
 This will start a Next.js server locally serving docs. As you edit files in the `docs/` directory you will be able to
