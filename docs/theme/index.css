@@ -5,8 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* KaTeX's katex-mathml is for screen readers only — visually hidden.
-   Tailwind Preflight with important:true can override KaTeX's clip-based hiding. */
+/* Tailwind Preflight overrides KaTeX's screen-reader-only hiding */
 .katex .katex-mathml {
   position: absolute !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
