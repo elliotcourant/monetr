@@ -5,7 +5,7 @@
   { "type": "section-header", "label": "Self-Hosting" },
   { "type": "dir", "name": "install", "label": "Installation" },
   { "type": "dir", "name": "configure", "label": "Configuration" },
-  { "type": "file", "name": "guides/migrate-kms", "label": "Guides" },
+  { "type": "dir", "name": "guides", "label": "Guids" },
   { "type": "section-header", "label": "Contributing" },
   { "type": "dir", "name": "development", "label": "Development" }
 ]
