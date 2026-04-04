@@ -48,7 +48,6 @@
   backdrop-filter: saturate(150%) blur(12px);
 }
 
-/* Wider search button */
 .rp-nav__right {
   min-width: 0;
 }
@@ -59,12 +58,12 @@
   min-width: 0;
 }
 
-/* Hide dark mode toggle since we force dark */
+/* hide dark mode toggle since we force dark */
 .rp-switch-appearance {
   display: none !important;
 }
 
-/* Custom monetr view utilities */
+/* custom monetr view utilities */
 .m-view-height {
   min-height: calc(100vh - var(--rp-nav-height, 64px));
 }
@@ -75,7 +74,6 @@
   padding-left: max(env(safe-area-inset-left), 1.5rem);
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 16px;
 }
@@ -95,7 +93,8 @@
   background-color: #71717a;
 }
 
-/* Feature card styling */
+/* feature card styling */
+/* TODO Make these SCSS modules... */
 .monetr {
   border-radius: 1em !important;
 }
@@ -116,7 +115,7 @@ img {
   }
 }
 
-/* Code highlighting support */
+/* code highlighting support */
 mark {
   color: var(--shiki-dark);
 }
