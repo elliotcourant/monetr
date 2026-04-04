@@ -11,7 +11,7 @@ import remarkMath from 'remark-math';
 const branch = process.env.GIT_BRANCH ?? 'main';
 
 export default defineConfig({
-  root: 'docs',
+  root: 'src',
   title: 'monetr',
   description:
     'Take control of your finances, paycheck by paycheck, with monetr. Put aside what you need, spend what you want, and confidently manage your money with ease.',
@@ -63,6 +63,8 @@ export default defineConfig({
           name: 'math',
           scopeName: 'source.math',
           patterns: [{ match: '.', name: 'text.math' }],
+          // Required for some reason?
+          repository: {},
         },
       ],
     },
@@ -73,7 +75,7 @@ export default defineConfig({
   ],
   builderConfig: {
     plugins: [pluginSass()],
-    source: {
+    resolve: {
       alias: {
         '@monetr/docs': path.resolve(__dirname, '.'),
       },
