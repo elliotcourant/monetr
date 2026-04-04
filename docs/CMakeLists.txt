@@ -15,7 +15,7 @@ file(GLOB DOCS_CONFIG_FILES
 )
 
 # NOTE: This cannot be outside this directory otherwise next complains.
-set(DOCUMENTATION_OUT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/out")
+set(DOCUMENTATION_OUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/out")
 set(DOCUMENTATION_DIST
   "${DOCUMENTATION_OUT_DIR}/404"
   "${DOCUMENTATION_OUT_DIR}/_next"
@@ -40,22 +40,16 @@ execute_process(
 )
 
 add_custom_command(
-  OUTPUT ${DOCUMENTATION_DIST} ${CMAKE_CURRENT_SOURCE_DIR}/.next ${CMAKE_CURRENT_SOURCE_DIR}/out
-  BYPRODUCTS ${DOCUMENTATION_DIST} ${CMAKE_CURRENT_SOURCE_DIR}/.next ${CMAKE_CURRENT_SOURCE_DIR}/out
-  # Since output files are hashed, make sure that there aren't any files that might be left over from the previous build
-  # in the output directory.
-  COMMAND ${GIT_EXECUTABLE} clean -f -X ${DOCUMENTATION_OUT_DIR}
+  OUTPUT ${DOCUMENTATION_DIST} ${DOCUMENTATION_OUT_DIR}
+  BYPRODUCTS ${DOCUMENTATION_DIST} ${DOCUMENTATION_OUT_DIR}
   # Once the output directory is clean, then actually build the user interface.
-  COMMAND ${CMAKE_COMMAND} -E env GIT_BRANCH=${GIT_BRANCH} ${NEXT_EXECUTABLE} build ${DOCS_SRC_DIR}
-  COMMAND ${SITEMAP_EXECUTABLE} --config ${DOCS_SRC_DIR}/next-sitemap.config.js
-  COMMAND ${NODE_EXECUTABLE} ${DOCS_SRC_DIR}/intl-temp.js ${CMAKE_CURRENT_SOURCE_DIR}/out
+  COMMAND ${CMAKE_COMMAND} -E env GIT_BRANCH=${GIT_BRANCH} OUTPUT_DIR=${DOCUMENTATION_OUT_DIR} ${RSPRESS_EXECUTABLE} build
   # This fixes an issue with github pages not liking underscore prefixed directories.
   COMMAND ${CMAKE_COMMAND} -E touch ${DOCUMENTATION_OUT_DIR}/.nojekyll
   COMMENT "Building monetr.app documentation and website"
-  WORKING_DIRECTORY ${DOCS_SRC_DIR}
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   DEPENDS
     dependencies.node_modules
-    tools.next
     ${ALL_DOCS_FILES}
     ${PUBLIC_FILES}
     ${DOCS_CONFIG_FILES}

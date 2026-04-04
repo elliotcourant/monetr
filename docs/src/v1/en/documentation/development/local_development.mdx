@@ -341,9 +341,9 @@ In order to build the complete documentation site as it is hosted online you can
 make docs
 ```
 
-This will compile the documentation and output to `$PWD/docs/doc_build`.
+This will compile the documentation and output to `$PWD/build/docs/out`.
 
-If you want you can then preview the built site using `pnpm --filter @monetr/docs preview`.
+If you want you can then preview the built site using `npx http-server $PWD/build/docs/out -c-1`.
 
 ### Emails
 

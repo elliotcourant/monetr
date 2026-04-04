@@ -11,6 +11,7 @@ import remarkMath from 'remark-math';
 const branch = process.env.GIT_BRANCH ?? 'main';
 
 export default defineConfig({
+  outDir: process.env.OUTPUT_DIR ?? 'doc_build',
   root: 'src',
   title: 'monetr',
   description:
@@ -42,7 +43,7 @@ export default defineConfig({
       message: '',
     },
     editLink: {
-      docRepoBaseUrl: `https://github.com/monetr/monetr/blob/${branch}/docs/docs`,
+      docRepoBaseUrl: `https://github.com/monetr/monetr/blob/${branch}/docs/src`,
     },
     lastUpdated: true,
   },
@@ -75,6 +76,9 @@ export default defineConfig({
   ],
   builderConfig: {
     plugins: [pluginSass()],
+    output: {
+      cleanDistPath: true,
+    },
     resolve: {
       alias: {
         '@monetr/docs': path.resolve(__dirname, '.'),
