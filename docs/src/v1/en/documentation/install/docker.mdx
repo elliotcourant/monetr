@@ -3,7 +3,7 @@ title: Self-Host with Docker Compose
 description: Learn how to self-host monetr using Docker Compose. Follow step-by-step instructions to set up monetr, manage updates, and troubleshoot common issues for a seamless self-hosting experience.
 ---
 
-import { Steps, Callout } from '@rspress/core/theme'
+import { Steps } from '@rspress/core/theme'
 
 # Docker Compose
 
@@ -23,17 +23,17 @@ Each monetr release provides two types of container image tags:
 
 ### `latest` Tag
 
-The `latest` tag always points to the most recent version of monetr. For example:  
+The `latest` tag always points to the most recent version of monetr. For example:
 `ghcr.io/monetr/monetr:latest`
 
-<Callout type="warning">
-  **Note**  
-  Using the `latest` tag is convenient but can lead to unexpected behavior if updates introduce breaking changes.
-</Callout>
+:::warning
+**Note**  Using the `latest` tag is convenient but can lead to unexpected behavior if updates introduce breaking
+changes.
+:::
 
 ### Versioned Tags
 
-Versioned tags, such as `0.18.31`, refer to specific releases. For example:  
+Versioned tags, such as `0.18.31`, refer to specific releases. For example:
 `ghcr.io/monetr/monetr:0.18.31`
 
 Version tags are recommended for stability. By pinning a version, you can control updates and easily roll back if
@@ -83,12 +83,12 @@ monetr service in the compose file to look like this:
 You can replace the path to the config file with any path you want as long as it is readable by monetr. You can specify
 multiple configuration file if you need to by passing `-c ${file}` multiple times _before_ the `serve` command.
 
-<Callout type="warning">
-  Environment variables can take priority over values in the configuration file. If you are not seeing the behavior
-  you're expecting with your configuration changes, make sure that the environment variable for that configuration
-  parameter is not specified with an incorrect or **blank** value. A blank value in the environment variable may cause
-  unusual behaviors.
-</Callout>
+:::warning
+Environment variables can take priority over values in the configuration file. If you are not seeing the behavior you're
+expecting with your configuration changes, make sure that the environment variable for that configuration parameter is
+not specified with an incorrect or **blank** value. A blank value in the environment variable may cause unusual
+behaviors.
+:::
 
 ### Start The Server
 
@@ -105,20 +105,20 @@ be healthy before letting you continue.
 
 Once monetr is finished starting, you should be able to access it in your browser via `http://localhost:4000`.
 
-<Callout type="info">
-  monetr may be accessible from other URLs like the host's IP address, but it will only set the authentication cookie
-  (as well as other things like email links) based on the external URL configuration. If you are having trouble logging
-  in, make sure you are accessing monetr from the same URL that it logs as "externalUrl" when it starts.
+:::info
+monetr may be accessible from other URLs like the host's IP address, but it will only set the authentication cookie
+(as well as other things like email links) based on the external URL configuration. If you are having trouble logging
+in, make sure you are accessing monetr from the same URL that it logs as "externalUrl" when it starts.
 
-  You can configure the external URL here: [Server Configuration](/documentation/configure/server)
-</Callout>
+You can configure the external URL here: [Server Configuration](/documentation/configure/server)
+:::
 
 </Steps>
 
-<Callout type="warning">
-  Sign ups are enabled by default from the `docker-compose.yaml` provided. If you are exposing your monetr instance to
-  the public internet; it is recommended you disable sign ups after you have created your own login.
-</Callout>
+:::warning
+Sign ups are enabled by default from the `docker-compose.yaml` provided. If you are exposing your monetr instance to the
+public internet; it is recommended you disable sign ups after you have created your own login.
+:::
 
 ## Updating Via Docker Compose
 
@@ -250,10 +250,10 @@ If these solutions don't resolve your issue:
 
 ## Uninstalling
 
-<Callout type="warning">
-  This will remove all of your data stored for monetr, please be careful as this data cannot be recovered unless you
-  have created a backup yourself somewhere.
-</Callout>
+:::warning
+This will remove all of your data stored for monetr, please be careful as this data cannot be recovered unless you have
+created a backup yourself somewhere.
+:::
 
 To uninstall monetr via Docker Compose you can run the following command:
 

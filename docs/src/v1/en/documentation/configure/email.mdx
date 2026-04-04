@@ -3,8 +3,6 @@ title: Email/SMTP
 description: Configure Email/SMTP for self-hosted monetr instances, allowing users to recover credentials via forgot password or verify users before they sign up.
 ---
 
-import { Callout } from '@rspress/core/theme'
-
 # Email/SMTP Configuration
 
 monetr supports sending email notifications (and email verification) if SMTP is configured. Currently emails can be sent
@@ -101,9 +99,9 @@ Make sure to read the documentation for your email provider. monetr **requires**
 it is connecting to. This can be via `STARTTLS` or via a dedicated TLS port on the server. Consult your providers
 documentation for specifics.
 
-<Callout type="info">
-  monetr's SMTP implementation _requires_ TLS. Your email provider must support TLS on whatever port specified below.
-</Callout>
+:::info
+monetr's SMTP implementation _requires_ TLS. Your email provider must support TLS on whatever port specified below.
+:::
 
 ```yaml title="config.yaml"
 email:

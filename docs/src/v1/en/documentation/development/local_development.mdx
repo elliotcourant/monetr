@@ -1,5 +1,3 @@
-import { Callout } from '@rspress/core/theme'
-
 # Local Development
 
 This guide walks you through setting up a local development environment for monetr on macOS or Linux. If you are using
@@ -93,10 +91,10 @@ specific preset when running general make targets you can create a `.cmakepreset
 that file you can put the name of the preset you want to use by default. Or you can pass `CMAKE_PRESET=...` when running
 a make target.
 
-<Callout type="info">
-  `CMAKE_PRESET` is ignored for some make targets, such as `release` and `test`. As each of those targets have a
-  specific preset that they are expected to use.
-</Callout>
+:::info
+`CMAKE_PRESET` is ignored for some make targets, such as `release` and `test`. As each of those targets have a specific
+preset that they are expected to use.
+:::
 
 Here is a sample of a user presets file with a few customized options:
 
@@ -163,12 +161,12 @@ into the `monetr` container where the API is running.
 make develop
 ```
 
-<Callout type="warning">
-  This command may prompt you for an administrator password, this is because monetr is using `mkcert` and `hostess` to
-  setup TLS certificates as well as the `monetr.local` domain name in your `/etc/hosts` file.
+:::warning
+This command may prompt you for an administrator password, this is because monetr is using `mkcert` and `hostess` to
+setup TLS certificates as well as the `monetr.local` domain name in your `/etc/hosts` file.
 
-  Disabling this will be available in the future, but has been required in order to integrate with Plaid's OAuth2 flow.
-</Callout>
+Disabling this will be available in the future, but has been required in order to integrate with Plaid's OAuth2 flow.
+:::
 
 This will install node modules in the project's directory, as well as start up the containers needed for monetr to run
 locally. This command will exit automatically once all the containers are healthy. If you want to follow along while it
@@ -200,10 +198,10 @@ Almost all of monetr's code is setup to hot-reload as you make changes. The docu
 automatically reload as changes are made. Changes to the Go code will not invoke a browser refresh of any sort though,
 so to observe a new behavior in the API you will need to refresh or make the API call again.
 
-<Callout type="info">
-  If you want to disable hot reloading of the Go code, you can include `DISABLE_GO_RELOAD=true` in your env variables
-  when you run `make develop`.
-</Callout>
+:::info
+If you want to disable hot reloading of the Go code, you can include `DISABLE_GO_RELOAD=true` in your env variables when
+you run `make develop`.
+:::
 
 ### Local Services
 
@@ -318,11 +316,11 @@ you are not able to create new accounts on it at this time. If you want to chang
 development environment is using you can customize the domain name in your `CMakeUserPresets.json` file as noted above
 in the [CMake](#cmake) section.
 
-<Callout type="warning">
-    Be extremely conscious about what actions you perform in the lite development environment, if you have your
-    development environment pointed at the production instance for example; any actions you take locally will affect
-    your real account. Any data modified or deleted will not be recoverable.
-</Callout>
+:::warning
+Be extremely conscious about what actions you perform in the lite development environment, if you have your development
+environment pointed at the production instance for example; any actions you take locally will affect your real account.
+Any data modified or deleted will not be recoverable.
+:::
 
 ### Documentation
 
@@ -368,9 +366,9 @@ Once you have finished your work and you want to take the local development envi
 
 If you want to completely shut everything down then you can run the following command:
 
-<Callout type="warning">
-  This will delete all of your local development data, including any Plaid links, expenses, goals, etc...
-</Callout>
+:::warning
+This will delete all of your local development data, including any Plaid links, expenses, goals, etc...
+:::
 
 ```shell title="Shell"
 make shutdown

@@ -4,7 +4,7 @@ description: Learn how to manage and organize transactions in monetr. Explore as
 ---
 
 import { Cards } from '@monetr/docs/components/Cards';
-import { Steps, Callout } from '@rspress/core/theme'
+import { Steps } from '@rspress/core/theme'
 import { HandCoins, PiggyBank, Link2, Upload } from 'lucide-react';
 
 # Transactions
@@ -91,19 +91,19 @@ You can view a similar transaction in detail by clicking the arrow or tapping th
 
 ### Notes on Similar Transactions
 
-<Callout type="info">
-  **Manually Created Transactions**<br/>
-  Similar transaction detection is not currently available for manually created transactions but will be supported in the future.
+:::info
+**Manually Created Transactions**<br/>
+Similar transaction detection is not currently available for manually created transactions but will be supported in the future.
 
-  **Potential Inaccuracies**<br/>
-  This feature is still being refined. The accuracy of similar transactions depends on the quality of the data provided:
-  - **Plaid**: Plaid may misidentify merchants, leading to incorrect groupings.
-  - **File Uploads**: File uploads typically include raw transaction names, which are easier for monetr to process.
-    However, extra details like location can sometimes cause grouping errors (e.g., grouping all transactions from a
-    town instead of a specific merchant).
+**Potential Inaccuracies**<br/>
+This feature is still being refined. The accuracy of similar transactions depends on the quality of the data provided:
+- **Plaid**: Plaid may misidentify merchants, leading to incorrect groupings.
+- **File Uploads**: File uploads typically include raw transaction names, which are easier for monetr to process.
+However, extra details like location can sometimes cause grouping errors (e.g., grouping all transactions from a
+town instead of a specific merchant).
 
-  We’re continually improving this feature to enhance its accuracy.
-</Callout>
+We’re continually improving this feature to enhance its accuracy.
+:::
 
 ### Why Transactions Matter in monetr
 

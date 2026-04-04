@@ -3,7 +3,7 @@ title: Multi-Factor Authentication (MFA)
 description: Secure your monetr account with TOTP multi-factor authentication. Learn how to enable MFA using trusted apps like Google Authenticator or 1Password, and add an extra layer of protection to your financial data.
 ---
 
-import { Steps, Callout } from '@rspress/core/theme'
+import { Steps } from '@rspress/core/theme'
 
 # Multi-Factor Authentication
 
@@ -20,6 +20,7 @@ tabs.
 ![Security Settings, MFA Disabled](/v1/en/documentation/use/security/assets/security_settings_mfa_disabled.png)
 
 <Steps>
+
 {<h3>Click <b>Enable TOTP</b></h3>}
 
 This will open the multi-factor setup modal.
@@ -50,8 +51,8 @@ The next time you login to monetr you will be prompted to enter your MFA code fr
 
 ![Login multi-factor prompt](/v1/en/documentation/use/security/assets/login_totp.png)
 
-<Callout type="warning">
-  If you lose access to your authenticator app you will lose access to your monetr account. If this happens please reach
-  out to monetr support via [support@monetr.app](mailto:support@monetr.app) and we can help you recover your account
-  after verifying ownership.
-</Callout>
+:::warning
+If you lose access to your authenticator app you will lose access to your monetr account. If this happens please reach
+out to monetr support via [support@monetr.app](mailto:support@monetr.app) and we can help you recover your account after
+verifying ownership.
+:::

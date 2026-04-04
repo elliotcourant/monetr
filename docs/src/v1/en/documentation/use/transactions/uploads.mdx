@@ -4,7 +4,7 @@ description: Learn how to import transactions and balances into monetr using OFX
 ---
 
 import { Cards } from '@monetr/docs/components/Cards';
-import { Steps, Callout } from '@rspress/core/theme'
+import { Steps } from '@rspress/core/theme'
 import { ShoppingCart, Link2 } from 'lucide-react';
 
 # Transaction File Uploads
@@ -47,18 +47,19 @@ When you upload an OFX file to monetr:
 
 ## Important Considerations
 
-<Callout type="warning">
+:::warning
   **Sensitive Information**<br/>
-  OFX files may contain sensitive information, such as account numbers. monetr:
-  - **Does not process or store sensitive information** like account numbers.
-  - **Deletes all uploaded files immediately after processing** to ensure data security.
-</Callout>
+OFX files may contain sensitive information, such as account numbers. monetr:
+- **Does not process or store sensitive information** like account numbers.
+- **Deletes all uploaded files immediately after processing** to ensure data security.
 
-<Callout type="info">
-  **Manually Created Transactions**<br/>
-  Currently, monetr does not merge manually created transactions with those imported via file uploads. Manually created
-  transactions remain separate.
-</Callout>
+:::
+
+:::info
+**Manually Created Transactions**<br/>
+Currently, monetr does not merge manually created transactions with those imported via file uploads. Manually created
+transactions remain separate.
+:::
 
 - **Manual Links Only**: File uploads are supported exclusively for manual links. Plaid-managed links cannot import
   transactions via file uploads.

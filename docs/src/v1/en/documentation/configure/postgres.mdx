@@ -2,8 +2,6 @@
 title: "PostgreSQL"
 ---
 
-import { Callout } from '@rspress/core/theme'
-
 # PostgreSQL Configuration
 
 monetr's primary database is PostgreSQL and is required in order for monetr to run. monetr also uses PostgreSQL as a
@@ -37,10 +35,10 @@ postgresql:
 | `certificatePath`    | String   |             | Path to the client TLS certificate that monetr should use to connect to the PostgreSQL server.                                                                                                        |
 | `migrate`            | Boolean  | `true`      | Automatically apply database migrations on startup.                                                                                                                                                   |
 
-<Callout type="info">
-  monetr does watch for certificate changes on the filesystem to facilitate certificate rotation without needing to
-  restart the server. However this functionality does not always work and should not be relied on at this time.
-</Callout>
+:::info
+monetr does watch for certificate changes on the filesystem to facilitate certificate rotation without needing to
+restart the server. However this functionality does not always work and should not be relied on at this time.
+:::
 
 The following environment variables map to the following configuration file fields. Each field is documented below.
 

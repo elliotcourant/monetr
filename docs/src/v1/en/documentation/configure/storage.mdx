@@ -3,8 +3,6 @@ title: "Storage"
 description: Configure your self hosted monetr instance to allow for file uploads, letting you import transactions from OFX files.
 ---
 
-import { Callout } from '@rspress/core/theme'
-
 # Storage Configuration
 
 monetr allows files to be uploaded in order to import transactions using OFX files. You can find the documentation on
@@ -38,11 +36,11 @@ The following environment variables map to the following configuration file fiel
 | `MONETR_STORAGE_ENABLED`  | `storage.enabled`  |
 | `MONETR_STORAGE_PROVIDER` | `storage.provider` |
 
-<Callout type="warning">
-  monetr does not currently have a way to migrate between storage providers. This should not be a problem immediately as
-  the only files currently being uploaded are deleted shortly after they are processed. But as monetr adds support for
-  things like transaction attachments this will become more relevant.
-</Callout>
+:::warning
+monetr does not currently have a way to migrate between storage providers. This should not be a problem immediately as
+the only files currently being uploaded are deleted shortly after they are processed. But as monetr adds support for
+things like transaction attachments this will become more relevant.
+:::
 
 ## S3 Compatible
 

@@ -3,7 +3,6 @@ title: "Key Management"
 description: Configure your self hosted monetr instance to encrypt secrets using an encryption service such as Vault or AWS KMS.
 ---
 
-import { Callout } from '@rspress/core/theme'
 import { Cards } from '@monetr/docs/components/Cards';
 import { ShoppingCart, Link2 } from 'lucide-react';
 
@@ -22,10 +21,10 @@ keyManagement:
   vault: { ... }   # Hashicorp Vault configuration, only used when `provider: vault`
 ```
 
-<Callout type="info">
-  If you are using the `plaintext` provider (which is the default), no additional options needs to be provided for the
-  key management configuration.
-</Callout>
+:::info
+If you are using the `plaintext` provider (which is the default), no additional options needs to be provided for the key
+management configuration.
+:::
 
 ## Plaintext
 
@@ -95,11 +94,11 @@ keyManagement:
 
 ## Vault Transit Configuration
 
-<Callout type="warning">
-  The Vault Transit KMS provider is being deprecated in an upcoming monetr release. If you are currently using the Vault
-  Transit KMS provider then please follow the [Migration Guide](/documentation/guides/migrate-kms) as soon as possible
-  to avoid future problems.
-</Callout>
+:::warning
+The Vault Transit KMS provider is being deprecated in an upcoming monetr release. If you are currently using the Vault
+Transit KMS provider then please follow the [Migration Guide](/documentation/guides/migrate-kms) as soon as possible to
+avoid future problems.
+:::
 
 [Hashicorp Vault](https://www.vaultproject.io/) is a self-hostable option for encryption. Vault keeps track of the
 encryption keys themselves while monetr leverages the

@@ -3,8 +3,6 @@ title: Security
 description: monetr's security settings, configure a certificate for token issuing and verification.
 ---
 
-import { Callout } from '@rspress/core/theme'
-
 # Security Configuration
 
 monetr uses [Platform-Agnostic Security Tokens](https://paseto.io/) for authentication as well as other stateless
@@ -42,9 +40,9 @@ To see the public key from this generated certificate:
 openssl pkey -in ed25519.key -pubout -text
 ```
 
-<Callout type="info">
-  monetr does not support certificate rotation for the security certificate. To rotate the certificate simply regenerate
-  the certificate file and restart the monetr server. Any existing tokens will no longer be considered valid, this will
-  also logout any currently active or signed on users.
-</Callout>
+:::info
+monetr does not support certificate rotation for the security certificate. To rotate the certificate simply regenerate
+the certificate file and restart the monetr server. Any existing tokens will no longer be considered valid, this will
+also logout any currently active or signed on users.
+:::
 

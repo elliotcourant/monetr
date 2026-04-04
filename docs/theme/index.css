@@ -138,3 +138,17 @@ mark {
 .rp-nav-screen-appearance + .rp-nav-screen-divider {
   display: none !important;
 }
+
+/* When you are inside a stepper, move the anchor to the end of the header
+   instead */
+/* This might not be necessary if
+   https://github.com/web-infra-dev/rspress/pull/3276 gets merged */
+.rp-steps > .rp-toc-include:has(> .rp-header-anchor) {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.rp-steps > .rp-toc-include > .rp-header-anchor {
+  order: 2;
+  border-bottom: 1px solid transparent;
+}

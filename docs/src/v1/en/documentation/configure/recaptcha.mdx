@@ -2,14 +2,12 @@
 title: "ReCAPTCHA"
 ---
 
-import { Callout } from '@rspress/core/theme'
-
 # ReCAPTCHA Configuration
 
-<Callout type="warning">
-  The ReCAPTCHA feature is being deprecated in an upcoming release. See more details here: [Issue
-  #2979](https://github.com/monetr/monetr/issues/2979)
-</Callout>
+:::warning
+The ReCAPTCHA feature is being deprecated in an upcoming release. See more details here: [Issue
+#2979](https://github.com/monetr/monetr/issues/2979)
+:::
 
 ReCAPTCHA can be enabled on monetr to help prevent spamming certain endpoints in monetr's API. Specifically it is used
 on the login, registration and forgot password endpoints. These endpoints are particularly sensitive, so a captcha can
@@ -26,10 +24,10 @@ reCAPTCHA:
   verifyForgotPassword: <true|false> # Require a valid captcha to send password reset links.
 ```
 
-<Callout type="warning">
-  monetr currently only supports version **2** of ReCAPTCHA. This feature is likely to be removed in a future release or
-  migrated to a non-Google captcha provider.
-</Callout>
+:::warning
+monetr currently only supports version **2** of ReCAPTCHA. This feature is likely to be removed in a future release or
+migrated to a non-Google captcha provider.
+:::
 
 | **Name**               | **Type** | **Default** | **Description**                                                                                                                 |
 | ---                    | ---      | ---         | ---                                                                                                                             |

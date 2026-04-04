@@ -3,8 +3,6 @@ title: Server
 description: "Configure monetr's server parameters for self hosted environments."
 ---
 
-import { Callout } from '@rspress/core/theme'
-
 # Server Configuration
 
 These configuration parameters control monetr's actual HTTP server as well as some configuration around cookies.
@@ -34,16 +32,16 @@ server:
 | `tlsCertificate` | String   |                                       | Specify the TLS certificate that the monetr HTTP server should use.                                                                                                                                                                                                                                                |
 | `tlsKey`         | String   |                                       | Specify the TLS key that the monetr HTTP server should use.                                                                                                                                                                                                                                                        |
 
-<Callout type="info">
-  The TLS certificate and key **do not affect the external URL**. If you specify `https://...` in the external URL and
-  omit a TLS certificate and key, monetr assumes that you have some kind of proxy layer such as Nginx providing TLS
-  termination.
-</Callout>
+:::info
+The TLS certificate and key **do not affect the external URL**. If you specify `https://...` in the external URL and
+omit a TLS certificate and key, monetr assumes that you have some kind of proxy layer such as Nginx providing TLS
+termination.
+:::
 
-<Callout type="info">
-  TLS certificates are also not automatically rotated for the HTTP server either. The server must be restarted after
-  certificates are changed. 
-</Callout>
+:::info
+TLS certificates are also not automatically rotated for the HTTP server either. The server must be restarted after
+certificates are changed. 
+:::
 
 The following environment variables map to the following configuration file fields. Each field is documented below.
 
