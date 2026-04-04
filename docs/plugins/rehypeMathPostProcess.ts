@@ -11,18 +11,20 @@
 // Inline math ($...$) is unaffected — Shiki only processes <pre><code> blocks,
 // not standalone <code> elements, so rehype-katex handles inline math fine.
 
+import type { Element, ElementContent, Nodes, Root } from 'hast';
 import { fromHtml } from 'hast-util-from-html';
-import katex from 'katex';
+import * as katex from 'katex';
 import { SKIP, visit } from 'unist-util-visit';
 
-function isMathCodeBlock(node) {
-  if (node.tagName !== 'pre') return false;
-  const props = node.properties || {};
+function isMathCodeBlock(node: Element): boolean {
+  const props = node.properties;
   // rspress/Shiki uses raw HTML attribute names (lang) not HAST convention (dataLang)
   if (props.dataLang === 'math' || props['data-lang'] === 'math' || props.lang === 'math') return true;
-  const code = node.children?.find(c => c.type === 'element' && c.tagName === 'code');
+  const code = node.children.find(
+    (c): c is Element => c.type === 'element' && c.tagName === 'code',
+  );
   if (!code) return false;
-  const codeProps = code.properties || {};
+  const codeProps = code.properties;
   if (codeProps.dataLang === 'math' || codeProps['data-lang'] === 'math' || codeProps.lang === 'math') return true;
   const classes = codeProps.className || codeProps.class;
   if (Array.isArray(classes)) {
@@ -34,15 +36,16 @@ function isMathCodeBlock(node) {
   return false;
 }
 
-function extractText(node) {
+function extractText(node: Nodes): string {
   if (node.type === 'text') return node.value;
-  if (node.children) return node.children.map(extractText).join('');
+  if ('children' in node) return node.children.map(extractText).join('');
   return '';
 }
 
 export default function rehypeMathPostProcess() {
-  return (tree) => {
+  return (tree: Root) => {
     visit(tree, 'element', (node, index, parent) => {
+      if (node.tagName !== 'pre' || index === undefined || !parent) return;
       if (!isMathCodeBlock(node)) return;
 
       const latex = extractText(node).trim();
@@ -58,11 +61,11 @@ export default function rehypeMathPostProcess() {
         const fragment = fromHtml(html, { fragment: true });
 
         // Wrap in a display-math container div
-        const wrapper = {
+        const wrapper: Element = {
           type: 'element',
           tagName: 'div',
           properties: { className: ['math', 'math-display'] },
-          children: fragment.children,
+          children: fragment.children as ElementContent[],
         };
 
         parent.children[index] = wrapper;

@@ -1,5 +1,5 @@
-import rehypeMathPostProcess from './plugins/rehypeMathPostProcess.js';
-import pluginSearchIndexCleanup from './plugins/searchIndexCleanup.js';
+import rehypeMathPostProcess from './plugins/rehypeMathPostProcess';
+import pluginSearchIndexCleanup from './plugins/searchIndexCleanup';
 
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { defineConfig } from '@rspress/core';

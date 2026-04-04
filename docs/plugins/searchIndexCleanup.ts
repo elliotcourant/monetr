@@ -1,9 +1,9 @@
 // Strips MDX/markdown artifacts from search index content. The built-in
 // indexer uses remark (not MDX), so JSX tags and markdown syntax leak through.
 
-function cleanContent(text) {
-  if (!text) return text;
+import type { RspressPlugin } from '@rspress/shared';
 
+function cleanContent(text: string): string {
   return text
     .replace(/<[A-Za-z][A-Za-z0-9.]*\b[\s\S]*?\/>/g, '') // self-closing tags
     .replace(/<[A-Za-z][A-Za-z0-9.]*\b[\s\S]*?>/g, '')   // opening tags
@@ -17,7 +17,7 @@ function cleanContent(text) {
     .trim();
 }
 
-export default function pluginSearchIndexCleanup() {
+export default function pluginSearchIndexCleanup(): RspressPlugin {
   return {
     name: 'plugin-search-index-cleanup',
     modifySearchIndexData(pages) {
