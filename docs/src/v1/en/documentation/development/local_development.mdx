@@ -326,16 +326,14 @@ in the [CMake](#cmake) section.
 
 ### Documentation
 
-monetr's documentation is built using Next.js and Nextra, it can be developed locally using the following command:
+monetr's documentation is built using Rspress, it can be developed locally using the following command:
 
 ```shell title="Shell"
 make develop-docs
 ```
 
-This will setup everything the documentation site needs and run the Next.JS development server locally, you can now make
+This will setup everything the documentation site needs and run the Rspress development server locally, you can now make
 changes to the documentation and see those changes reflected in your browser.
-
-**Note:** The "hero" or interface example on the documentation site's homepage _does not work_ in development mode.
 
 In order to build the complete documentation site as it is hosted online you can run the follow command:
 
@@ -343,9 +341,9 @@ In order to build the complete documentation site as it is hosted online you can
 make docs
 ```
 
-This will compile the documentation and output to `$PWD/docs/out`.
+This will compile the documentation and output to `$PWD/docs/doc_build`.
 
-If you want you can then run the entire site using the command: `npx http-server docs/out -c-1`.
+If you want you can then preview the built site using `pnpm --filter @monetr/docs preview`.
 
 ### Emails
 

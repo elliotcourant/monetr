@@ -20,7 +20,7 @@ in our GitHub Actions workflows.
 ### Building Locally
 
 You can build our documentation site locally using the following command, it requires Node.js and will create a static
-site in the `$PWD/docs/out` directory.
+site in the `$PWD/docs/doc_build` directory.
 
 ```shell title="Shell"
 make docs
@@ -43,12 +43,12 @@ If you want to work on the documentation in real time locally you can run the fo
         pnpm install
 
         # Start the documentation server
-        pnpm -r -filter docs run dev
+        pnpm --filter @monetr/docs dev
         ```
     </Tab>
 </Tabs>
 
-This will start a Next.js server locally serving docs. As you edit files in the `docs/` directory you will be able to
+This will start an Rspress development server locally serving docs. As you edit files in the `docs/` directory you will be able to
 see those changes automatically refresh in your browser.
 
 ## Style

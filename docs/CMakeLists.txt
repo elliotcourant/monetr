@@ -69,11 +69,11 @@ add_custom_target(
 
 add_custom_target(
   development.documentation.up
-  COMMAND ${CMAKE_COMMAND} -E env GIT_BRANCH=${GIT_BRANCH} ${NEXT_EXECUTABLE} dev
+  COMMAND ${CMAKE_COMMAND} -E env GIT_BRANCH=${GIT_BRANCH} ${RSPRESS_EXECUTABLE} dev
   WORKING_DIRECTORY ${DOCS_SRC_DIR}
   DEPENDS
     dependencies.node_modules
-    tools.next
+    tools.rspress
     ${ALL_DOCS_FILES}
     ${PUBLIC_FILES}
     ${DOCS_CONFIG_FILES}
