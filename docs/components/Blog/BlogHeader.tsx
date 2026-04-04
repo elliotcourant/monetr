@@ -17,10 +17,10 @@ export default function BlogHeader(): JSX.Element {
         {format(parse((frontmatter as Record<string, string>).date, 'yyyy/MM/dd', new Date()), 'MMMM dd, yyyy')}
       </span>
       <div className='flex items-center justify-center relative'>
-        <span className='absolute mx-auto flex w-fit bg-gradient-to-r blur-xl opacity-50 from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl sm:text-6xl font-extrabold text-transparent text-center select-none'>
+        <span className='absolute mx-auto flex w-fit bg-gradient-to-r blur-xl opacity-50 from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl/tight sm:text-6xl/tight font-extrabold text-transparent text-center select-none'>
           {(frontmatter as Record<string, string>).title}
         </span>
-        <h1 className='relative top-0 justify-center flex bg-gradient-to-r items-center from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl sm:text-6xl font-extrabold text-transparent text-center select-auto'>
+        <h1 className='relative top-0 justify-center flex bg-gradient-to-r items-center from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl/tight sm:text-6xl/tight font-extrabold text-transparent text-center select-auto'>
           {(frontmatter as Record<string, string>).title}
         </h1>
       </div>

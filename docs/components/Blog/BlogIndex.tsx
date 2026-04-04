@@ -53,10 +53,10 @@ export default function BlogIndex(): JSX.Element {
     <div className='m-view-height py-8'>
       <div className='w-full flex flex-col gap-8 text-center items-center'>
         <div className='flex items-center justify-center p-4'>
-          <span className='absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl opacity-50 from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl font-extrabold text-transparent text-center select-none'>
+          <span className='absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl opacity-50 from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl/tight font-extrabold text-transparent text-center select-none'>
             Blog
           </span>
-          <h1 className='h-24 relative top-0 justify-center flex bg-gradient-to-r items-center from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl font-extrabold text-transparent text-center select-auto'>
+          <h1 className='h-24 relative top-0 justify-center flex bg-gradient-to-r items-center from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-5xl/tight font-extrabold text-transparent text-center select-auto'>
             Blog
           </h1>
         </div>
