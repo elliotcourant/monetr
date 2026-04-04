@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { useFrontmatter } from '@rspress/core/runtime';
 
 import GithubStars from '../components/GithubStars';
 import QueryClientWrapper from '../components/QueryClientWrapper';
 import SignIn from '../components/SignIn';
 
+import { useFrontmatter } from '@rspress/core/runtime';
 import {
   Banner,
   Layout as BasicLayout,
@@ -108,5 +108,4 @@ function FallbackHeading(props: { level: 1 | 2 | 3 | 4 | 5 | 6; title: string })
 }
 
 export * from '@rspress/core/theme-original';
-
-export { Layout, FallbackHeading };
+export { FallbackHeading, Layout };

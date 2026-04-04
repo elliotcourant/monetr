@@ -19,9 +19,7 @@ function Card({ title, href, icon, children, arrow }: CardProps) {
         {title}
         {arrow && <span className='ml-1'>&rarr;</span>}
       </h3>
-      {children && (
-        <p className='text-sm text-zinc-400 mt-1'>{children}</p>
-      )}
+      {children && <p className='text-sm text-zinc-400 mt-1'>{children}</p>}
     </a>
   );
 }

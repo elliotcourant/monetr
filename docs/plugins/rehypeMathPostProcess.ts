@@ -20,9 +20,7 @@ function isMathCodeBlock(node: Element): boolean {
   const props = node.properties;
   // rspress/Shiki uses raw HTML attribute names (lang) not HAST convention (dataLang)
   if (props.dataLang === 'math' || props['data-lang'] === 'math' || props.lang === 'math') return true;
-  const code = node.children.find(
-    (c): c is Element => c.type === 'element' && c.tagName === 'code',
-  );
+  const code = node.children.find((c): c is Element => c.type === 'element' && c.tagName === 'code');
   if (!code) return false;
   const codeProps = code.properties;
   if (codeProps.dataLang === 'math' || codeProps['data-lang'] === 'math' || codeProps.lang === 'math') return true;

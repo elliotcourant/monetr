@@ -6,14 +6,14 @@ import type { RspressPlugin } from '@rspress/shared';
 function cleanContent(text: string): string {
   return text
     .replace(/<[A-Za-z][A-Za-z0-9.]*\b[\s\S]*?\/>/g, '') // self-closing tags
-    .replace(/<[A-Za-z][A-Za-z0-9.]*\b[\s\S]*?>/g, '')   // opening tags
-    .replace(/<\/[A-Za-z][A-Za-z0-9.]*>/g, '')           // closing tags
-    .replace(/\{[^{}]*\}/g, '')                          // JSX expressions
-    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')            // images → alt text (before links)
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')             // links → text
-    .replace(/^#{1,6}\s+/gm, '')                         // heading markers
-    .replace(/^\s*\w+="[^"]*"\s*$/gm, '')                // stray JSX attributes
-    .replace(/\n{3,}/g, '\n\n')                          // collapse blank lines
+    .replace(/<[A-Za-z][A-Za-z0-9.]*\b[\s\S]*?>/g, '') // opening tags
+    .replace(/<\/[A-Za-z][A-Za-z0-9.]*>/g, '') // closing tags
+    .replace(/\{[^{}]*\}/g, '') // JSX expressions
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1') // images → alt text (before links)
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // links → text
+    .replace(/^#{1,6}\s+/gm, '') // heading markers
+    .replace(/^\s*\w+="[^"]*"\s*$/gm, '') // stray JSX attributes
+    .replace(/\n{3,}/g, '\n\n') // collapse blank lines
     .trim();
 }
 

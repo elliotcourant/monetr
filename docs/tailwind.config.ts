@@ -54,11 +54,7 @@ const config: Config = {
       },
     },
   },
-  content: [
-    './docs/**/*.{js,ts,jsx,tsx,md,mdx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './theme/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./docs/**/*.{js,ts,jsx,tsx,md,mdx}', './components/**/*.{js,ts,jsx,tsx}', './theme/**/*.{js,ts,jsx,tsx}'],
 };
 
 export default config;
