@@ -5,28 +5,25 @@ description: "A technical deep-dive into how monetr detects similar transactions
 tag: Engineering
 ogImage: /blog/2025-12-31-similar-transactions/preview.png
 author: Elliot Courant
-searchable: true
 sidebar: false
 outline: false
+noFallbackHeading: true
+pageType: doc-wide
 ---
 
-import { Callout } from '@rspress/core/theme';
 import BlogHeader from '@monetr/docs/components/Blog/BlogHeader';
+import BlogMeme from '@monetr/docs/components/Blog/BlogMeme';
 
 <BlogHeader />
 
-<div className="flex justify-center">
-  <div className="w-1/2 sm:w-1/3">
-    ![Dumb Stuff](/v1/en/blog/2025-12-31-similar-transactions/dumbstuff.png)
-  </div>
-</div>
+<BlogMeme src='/v1/en/blog/2025-12-31-similar-transactions/dumbstuff.png' alt='Dumb Stuff'/>
 
-<Callout type="info">
-  This blog post contains information that is loosely understood and probably **wrong**. Do not mistake this blog post
-  and the achievement of the desired results as proof that I know what I'm doing, or that the things discussed here are
-  100% factual. This blog post covers what I have done based on my loose understanding and assumptions only. **I am
-  simply making mistakes in public so that people can point them out sooner.**
-</Callout>
+:::info
+This blog post contains information that is loosely understood and probably **wrong**. Do not mistake this blog post and
+the achievement of the desired results as proof that I know what I'm doing, or that the things discussed here are 100%
+factual. This blog post covers what I have done based on my loose understanding and assumptions only. **I am simply
+making mistakes in public so that people can point them out sooner.**
+:::
 
 One of the coolest problems that I was able to work on with monetr was trying to come up with a way to group
 transactions together. I wanted to be able to view a transaction and in the same view see other similar transactions.
@@ -55,12 +52,12 @@ Here is an example of a transaction name or memo that I'm dealing with in my own
 POS DEBIT-DC 1234 TST* CARIBOU COFFE NORTH BRANCH MN
 ```
 
-<Callout type="info">
-  **Note**: In this example I'm only using the "original name" of the transaction. In practice, monetr uses both the
-  "original name" and the "original merchant name" of the transaction concatenated into a single string. This way if a
-  word appears in both then it will appear multiple times in the combined string and be considered more valuable by
-  tf-idf.
-</Callout>
+:::info
+**Note**: In this example I'm only using the "original name" of the transaction. In practice, monetr uses both the
+"original name" and the "original merchant name" of the transaction concatenated into a single string. This way if a
+word appears in both then it will appear multiple times in the combined string and be considered more valuable by
+tf-idf.
+:::
 
 Most of the transactions in my dataset follow this format. The first word is the payment method, in this case `POS` or
 "Point of Sale". Other transactions may have other payment methods like `ACH` though. Then the direction of the payment,
@@ -123,11 +120,11 @@ $$
 \text{tf}_{word} = \frac{\text{frequency within document}_{word}}{\text{number of unique words within document}}
 $$
 
-<Callout type="info">
-  **Note**: monetr is dividing the frequency of the word within the document by the number of unique words in the
-  document. More precisely, the number of unique non-useless tokens in the document. Tokens or words that were thrown
-  out in the tokenization step are not considered in this count.
-</Callout>
+:::info
+**Note**: monetr is dividing the frequency of the word within the document by the number of unique words in the
+document. More precisely, the number of unique non-useless tokens in the document. Tokens or words that were thrown out
+in the tokenization step are not considered in this count.
+:::
 
 Once all of the documents have been added, the "idf" can be calculated. This is done using the following formula.
 
@@ -135,11 +132,11 @@ $$
 \text{idf}_{word} = \log\left(\frac{\text{number of documents}}{\text{count}_{word} + 1}\right)
 $$
 
-<Callout type="info">
-  **Note**: This isn't quite the same weighting scheme as __inverse document frequency__ or __inverse document frequency
-  smoothed__. I've simply translated what I have in code and its very possible (read likely) that I implemented this
-  part wrong.
-</Callout>
+:::info
+**Note**: This isn't quite the same weighting scheme as __inverse document frequency__ or __inverse document frequency
+smoothed__. I've simply translated what I have in code and its very possible (read likely) that I implemented this part
+wrong.
+:::
 
 Now we have an individual document frequency for every word among all of our transactions. This on its own is valuable
 in that it will already show which words show up in almost every transaction.
@@ -225,7 +222,8 @@ $$
 Then change the original vector, dividing each value by the "norm" we derived from above.
 
 $$
-\hat{x}_i = \frac{x_i}{\|\mathbf{x}\|_2} \quad\text{for } i = 1, \dots, n
+\hat{x}_i = \frac{x_i}{\|\mathbf{x}\|_2}
+\quad\text{for } i = 1, \dots, n
 $$
 
 This normalization makes the vector more uniform while preserving the ratios between the values within that vector.
@@ -450,12 +448,12 @@ implementation of them is not correct. If you would be interested in correcting 
 me know. monetr is built in the open and the code is fully available to everyone. I'm here making stupid choices in
 public so people can point them out sooner.
 
-<Callout type="warning">
-  At the time of writing this blog post, some of the functionality and behaviors discussed in this blog post were made
-  as part of writing it (turns out looking at your code to write about what it's doing makes you realize how bad your
-  code is). So some of the improvements made as part of writing this blog post have not been released (at the time of
-  writing this). These improvements will be available in the next update.
-</Callout>
+:::warning
+At the time of writing this blog post, some of the functionality and behaviors discussed in this blog post were made as
+part of writing it (turns out looking at your code to write about what it's doing makes you realize how bad your code
+is). So some of the improvements made as part of writing this blog post have not been released (at the time of writing
+this). These improvements will be available in the next update.
+:::
 
 ---
 

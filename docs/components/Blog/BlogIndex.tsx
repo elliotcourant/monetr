@@ -33,19 +33,10 @@ export default function BlogIndex(): JSX.Element {
   const { pages } = usePages();
 
   const blogPages = pages
-    .filter(
-      (page) =>
-        page.routePath.startsWith('/blog/') &&
-        page.routePath !== '/blog/' &&
-        page.routePath !== '/blog',
-    )
+    .filter(page => page.routePath.startsWith('/blog/') && page.routePath !== '/blog/' && page.routePath !== '/blog')
     .sort((a, b) => {
-      const dateA = a.frontmatter?.date
-        ? new Date(a.frontmatter.date as string).getTime()
-        : 0;
-      const dateB = b.frontmatter?.date
-        ? new Date(b.frontmatter.date as string).getTime()
-        : 0;
+      const dateA = a.frontmatter?.date ? new Date(a.frontmatter.date as string).getTime() : 0;
+      const dateB = b.frontmatter?.date ? new Date(b.frontmatter.date as string).getTime() : 0;
       return dateB - dateA;
     });
 
@@ -62,7 +53,7 @@ export default function BlogIndex(): JSX.Element {
         </div>
       </div>
       <div className='flex m-view-width mx-auto justify-center flex-wrap'>
-        {blogPages.map((page) => (
+        {blogPages.map(page => (
           <a
             className='block mb-8 group flex-shrink-0 w-full lg:w-1/2 p-2 no-underline text-inherit'
             href={page.routePath}
@@ -71,9 +62,7 @@ export default function BlogIndex(): JSX.Element {
             {(page.frontmatter?.ogImage as string) ? (
               <div className='mt-4 rounded relative aspect-video overflow-hidden'>
                 <img
-                  alt={
-                    (page.frontmatter?.title as string) ?? 'Blog post image'
-                  }
+                  alt={(page.frontmatter?.title as string) ?? 'Blog post image'}
                   className='object-cover w-full h-full transform group-hover:scale-105 transition-transform'
                   src={page.frontmatter.ogImage as string}
                 />
@@ -97,14 +86,7 @@ export default function BlogIndex(): JSX.Element {
             <div className='flex gap-1 flex-wrap mt-3 items-baseline'>
               {(page.frontmatter?.date as string) ? (
                 <span className='opacity-60 text-sm group-hover:opacity-100'>
-                  {format(
-                    parse(
-                      page.frontmatter.date as string,
-                      'yyyy/MM/dd',
-                      new Date(),
-                    ),
-                    'MMMM dd, yyyy',
-                  )}
+                  {format(parse(page.frontmatter.date as string, 'yyyy/MM/dd', new Date()), 'MMMM dd, yyyy')}
                 </span>
               ) : null}
               {(page.frontmatter?.author as string) ? (

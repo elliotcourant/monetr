@@ -71,12 +71,9 @@ export default defineConfig({
     },
     link: {
       checkDeadLinks: true,
-    }
+    },
   },
-  plugins: [
-    pluginSitemap({ siteUrl: 'https://monetr.app' }),
-    pluginSearchIndexCleanup(),
-  ],
+  plugins: [pluginSitemap({ siteUrl: 'https://monetr.app' }), pluginSearchIndexCleanup()],
   builderConfig: {
     plugins: [pluginSass()],
     output: {
@@ -85,6 +82,12 @@ export default defineConfig({
     resolve: {
       alias: {
         '@monetr/docs': path.resolve(__dirname, '.'),
+      },
+    },
+    performance: {
+      preload: {
+        type: 'all-assets',
+        include: [/inter-latin-wght-normal.*\.woff2$/],
       },
     },
   },

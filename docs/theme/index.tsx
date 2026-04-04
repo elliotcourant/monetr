@@ -1,19 +1,24 @@
 import { useEffect } from 'react';
+import { useFrontmatter } from '@rspress/core/runtime';
 
 import GithubStars from '../components/GithubStars';
 import QueryClientWrapper from '../components/QueryClientWrapper';
 import SignIn from '../components/SignIn';
 
-import { Banner, Layout as BasicLayout } from '@rspress/core/theme-original';
+import {
+  Banner,
+  Layout as BasicLayout,
+  FallbackHeading as OriginalFallbackHeading,
+} from '@rspress/core/theme-original';
 
 import './index.css';
 
 function NavTitle() {
   return (
-    <a className='flex items-center gap-3 no-underline'href='/' >
-      <img alt='monetr logo' className='w-8 h-8 lg:w-10 lg:h-10 rounded-none' src='/logo.svg' />
+    <a className='flex items-center gap-3 no-underline hover:brightness-110' href='/'>
+      <img alt='monetr logo' className='size-8 lg:size-10 rounded-none' src='/logo.svg' />
       <div className='flex items-center justify-center ml-1'>
-        <span className='absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl opacity-50 from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-2xl lg:text-3xl box-content font-extrabold text-transparent text-center select-none'>
+        <span className='absolute mx-auto flex border w-fit bg-gradient-to-r blur-xl opacity-75 from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-2xl lg:text-3xl box-content font-extrabold text-transparent text-center select-none'>
           monetr
         </span>
         <span className='relative top-0 justify-center flex bg-gradient-to-r items-center from-purple-100 via-purple-200 to-purple-300 bg-clip-text text-2xl lg:text-3xl font-extrabold text-transparent text-center select-auto'>
@@ -37,11 +42,14 @@ function Footer() {
   return (
     <footer className='border-t border-zinc-700 py-6 mt-8'>
       <div className='flex w-full items-center sm:items-start justify-between px-6 md:px-20'>
-        <p className='text-sm text-zinc-400'>
-          © {new Date().getFullYear()} monetr LLC.
-        </p>
+        <p className='text-sm text-zinc-400'>© {new Date().getFullYear()} monetr LLC.</p>
         <div className='gap-2 sm:gap-4 flex flex-col sm:flex-row'>
-          <a className='hover:underline text-sm text-zinc-400' href='https://status.monetr.app/' rel='noreferrer'target='_blank' >
+          <a
+            className='hover:underline text-sm text-zinc-400'
+            href='https://status.monetr.app/'
+            rel='noreferrer'
+            target='_blank'
+          >
             Status
           </a>
           <a className='hover:underline text-sm text-zinc-400' href='/contact'>
@@ -84,5 +92,21 @@ const Layout = () => {
   );
 };
 
+// Fixes an issue with headings on blog posts, where H1 would render if one isnt already there, but then the h1 would
+// also include things like the tag from the frontmatter which i dont want. So this just makes it so if the frontmatter
+// has `noFallbackHeading` then it doesnt do anything at all.
+function FallbackHeading(props: { level: 1 | 2 | 3 | 4 | 5 | 6; title: string }) {
+  const {
+    frontmatter: { noFallbackHeading },
+  } = useFrontmatter();
+
+  if (noFallbackHeading) {
+    return null;
+  }
+
+  return <OriginalFallbackHeading {...props} />;
+}
+
 export * from '@rspress/core/theme-original';
-export { Layout };
+
+export { Layout, FallbackHeading };

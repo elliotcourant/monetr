@@ -121,12 +121,20 @@ mark {
   color: var(--shiki-dark);
 }
 
-/* Override rspress content width */
-.rp-doc {
-  max-width: 100rem;
-}
 
 .rp-suggest-item--current .rp-suggest-item__link {
   /* Fixes search colors for the current item */
   background-color: var(--rp-c-bg-mute) !important;
+}
+
+/* These three selectors are hacks to make the appearance button not show but
+   also to make the divider that would separate it not show either. */
+.rp-nav-screen-divider:has( + .rp-nav-screen-appearance),
+.rp-nav-screen-appearance:has(+ .rp-nav-screen-divider) {
+  display: none !important;
+}
+
+.rp-nav-screen-divider + .rp-nav-screen-appearance,
+.rp-nav-screen-appearance + .rp-nav-screen-divider {
+  display: none !important;
 }

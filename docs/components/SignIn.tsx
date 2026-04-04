@@ -8,7 +8,7 @@ export default function SignIn(): JSX.Element {
     >
       <span className='relative inline-flex items-center text-nowrap'>
         Sign In
-        <ArrowRight className='h-5 w-5' />
+        <ArrowRight className='size-5' />
       </span>
     </a>
   );
