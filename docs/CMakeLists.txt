@@ -102,21 +102,4 @@ if(BUILD_TESTING)
     TEST docs/precompile
     PROPERTY LABELS "docs"
   )
-
-  set(HYPERLINK_GITHUB_ARGS "--check-anchors" "--sources" "${CMAKE_SOURCE_DIR}/docs/src/pages")
-  if(NOT "$ENV{CI}" STREQUAL "")
-    list(APPEND HYPERLINK_GITHUB_ARGS "--github-actions")
-  endif()
-  add_test(
-    NAME docs/check-links
-    COMMAND ${HYPERLINK_EXECUTABLE} ${CMAKE_SOURCE_DIR}/docs/out ${HYPERLINK_GITHUB_ARGS}
-  )
-  set_tests_properties(docs/check-links PROPERTIES
-    FIXTURES_REQUIRED documentation_output
-    TIMEOUT 45
-  )
-  set_property(
-    TEST docs/check-links
-    PROPERTY LABELS "docs"
-  )
 endif()

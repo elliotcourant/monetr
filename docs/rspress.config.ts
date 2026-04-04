@@ -69,6 +69,9 @@ export default defineConfig({
         },
       ],
     },
+    link: {
+      checkDeadLinks: true,
+    }
   },
   plugins: [
     pluginSitemap({ siteUrl: 'https://monetr.app' }),
