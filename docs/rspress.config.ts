@@ -8,7 +8,9 @@ import path from 'path';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
 
+const envName = process.env.NODE_ENV ?? 'development';
 const branch = process.env.GIT_BRANCH ?? 'main';
+const isDevelopment = envName !== 'production';
 
 export default defineConfig({
   outDir: process.env.OUTPUT_DIR ?? 'doc_build',
@@ -47,14 +49,6 @@ export default defineConfig({
     },
     lastUpdated: true,
   },
-  head: [
-    '<script>window.RSPRESS_THEME = "dark";</script>',
-    ...(process.env.NODE_ENV !== 'development'
-      ? [
-          '<script defer src="https://a.monetr.app/script.js" data-website-id="ccbdfaf9-683f-4487-b97f-5516e1353715"></script>',
-        ]
-      : []),
-  ],
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex, rehypeMathPostProcess],
@@ -86,9 +80,30 @@ export default defineConfig({
     },
     performance: {
       preload: {
+        // Prevents dumb screen flash where the font is missing
         type: 'all-assets',
         include: [/inter-latin-wght-normal.*\.woff2$/],
       },
+    },
+    html: {
+      tags: [
+        {
+          tag: 'script',
+          // Specify the default theme mode, which can be `dark` or `light`
+          children: "window.RSPRESS_THEME = 'dark';",
+        },
+        {
+          // Only include umami if we are doing a production build
+          tag: 'script',
+          attrs: !isDevelopment
+            ? {
+                defer: true,
+                src: 'https://a.monetr.app/script.js',
+                'data-website-id': 'ccbdfaf9-683f-4487-b97f-5516e1353715',
+              }
+            : {},
+        },
+      ],
     },
   },
   route: {
