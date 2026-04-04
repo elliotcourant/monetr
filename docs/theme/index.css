@@ -125,3 +125,8 @@ mark {
 .rp-doc {
   max-width: 100rem;
 }
+
+.rp-suggest-item--current .rp-suggest-item__link {
+  /* Fixes search colors for the current item */
+  background-color: var(--rp-c-bg-mute) !important;
+}
