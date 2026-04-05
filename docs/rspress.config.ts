@@ -4,6 +4,7 @@ import pluginSearchIndexCleanup from './plugins/searchIndexCleanup';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { defineConfig } from '@rspress/core';
 import { pluginSitemap } from '@rspress/plugin-sitemap';
+import { transformerNotationHighlight } from '@shikijs/transformers';
 import path from 'path';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
@@ -62,6 +63,7 @@ export default defineConfig({
           repository: {},
         },
       ],
+      transformers: [transformerNotationHighlight()],
     },
     link: {
       checkDeadLinks: true,

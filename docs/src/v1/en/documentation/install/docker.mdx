@@ -69,10 +69,10 @@ If you want to use a config file though you will need to modify the compose file
 a config file within the default volume mount that gets created. To use a config file adjust the `command` for the
 monetr service in the compose file to look like this:
 
-```yaml {2-3} title="docker-compose.yaml"
+```yaml title="docker-compose.yaml"
     command:
-      - -c
-      - /etc/monetr/config.yaml
+      - -c                      # [!code highlight]
+      - /etc/monetr/config.yaml # [!code highlight]
       - serve
       # Setup the database and perform migrations.
       - --migrate
@@ -202,12 +202,12 @@ id
 Those two numbers could be anything on your system, take those two numbers and add the following line to the `monetr`
 service in your docker compose file:
 
-```yaml {5} title="docker-compose.yaml"
+```yaml title="docker-compose.yaml"
 services:
   # ...
   monetr:
     # ...
-    user: 1000:1000
+    user: 1000:1000 # [!code highlight]
 ```
 
 Replacing the pairs of `1000` with the values of `uid` and `gid` respectively.

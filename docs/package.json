@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@rsbuild/plugin-sass": "1.5.1",
+    "@shikijs/transformers": "4.0.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
