@@ -151,3 +151,8 @@ mark {
   order: 2;
   border-bottom: 1px solid transparent;
 }
+
+/* Make edit this page match the last updated text color */
+.rp-edit-link {
+  color: var(--rp-c-text-3) !important;
+}
