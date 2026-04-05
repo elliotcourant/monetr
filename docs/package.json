@@ -11,8 +11,10 @@
   "dependencies": {
     "@fontsource-variable/inter": "5.2.8",
     "@radix-ui/react-slot": "1.2.4",
+    "@rsbuild/plugin-sass": "1.5.1",
     "@rspress/core": "2.0.8",
     "@rspress/plugin-sitemap": "2.0.8",
+    "@shikijs/transformers": "4.0.2",
     "@tanstack/react-query": "5.96.2",
     "class-variance-authority": "0.7.1",
     "date-fns": "4.1.0",
@@ -27,8 +29,6 @@
     "tailwind-merge": "1.14.0"
   },
   "devDependencies": {
-    "@rsbuild/plugin-sass": "1.5.1",
-    "@shikijs/transformers": "4.0.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

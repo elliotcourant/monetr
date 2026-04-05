@@ -28,12 +28,18 @@ importers:
       '@radix-ui/react-slot':
         specifier: 1.2.4
         version: 1.2.4(@types/react@19.2.14)(react@19.0.0)
+      '@rsbuild/plugin-sass':
+        specifier: 1.5.1
+        version: 1.5.1(@rsbuild/core@2.0.0-beta.11(core-js@3.47.0))
       '@rspress/core':
         specifier: 2.0.8
         version: 2.0.8(@types/mdast@4.0.4)(@types/react@19.2.14)(core-js@3.47.0)(micromark-util-types@2.0.0)(micromark@4.0.1)
       '@rspress/plugin-sitemap':
         specifier: 2.0.8
         version: 2.0.8(@rspress/core@2.0.8(@types/mdast@4.0.4)(@types/react@19.2.14)(core-js@3.47.0)(micromark-util-types@2.0.0)(micromark@4.0.1))
+      '@shikijs/transformers':
+        specifier: 4.0.2
+        version: 4.0.2
       '@tanstack/react-query':
         specifier: 5.96.2
         version: 5.96.2(react@19.0.0)
@@ -71,12 +77,6 @@ importers:
         specifier: 1.14.0
         version: 1.14.0
     devDependencies:
-      '@rsbuild/plugin-sass':
-        specifier: 1.5.1
-        version: 1.5.1(@rsbuild/core@2.0.0-beta.11(core-js@3.47.0))
-      '@shikijs/transformers':
-        specifier: 4.0.2
-        version: 4.0.2
       '@types/node':
         specifier: ^20
         version: 20.19.23
