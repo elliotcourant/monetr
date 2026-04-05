@@ -216,7 +216,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
           branch: monetr.app
-          folder: docs/out
+          folder: build/docs/out
 
   docker:
     name: Container Build
