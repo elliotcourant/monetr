@@ -1,4 +1,5 @@
 import { ArrowRight, CircleCheck } from 'lucide-react';
+
 import { Link } from '@rspress/core/theme-original';
 
 export default function PricingCards(): JSX.Element {

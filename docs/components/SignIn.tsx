@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+
 import { Link } from '@rspress/core/theme-original';
 
 export default function SignIn(): JSX.Element {

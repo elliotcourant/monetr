@@ -8,8 +8,8 @@ import { useFrontmatter } from '@rspress/core/runtime';
 import {
   Banner,
   Layout as BasicLayout,
-  FallbackHeading as OriginalFallbackHeading,
   Link,
+  FallbackHeading as OriginalFallbackHeading,
 } from '@rspress/core/theme-original';
 
 import './index.css';
