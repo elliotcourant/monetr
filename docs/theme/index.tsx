@@ -4,13 +4,8 @@ import GithubStars from '../components/GithubStars';
 import QueryClientWrapper from '../components/QueryClientWrapper';
 import SignIn from '../components/SignIn';
 
-import { NoSSR, useFrontmatter } from '@rspress/core/runtime';
-import {
-  Banner,
-  Layout as BasicLayout,
-  Link,
-  FallbackHeading as OriginalFallbackHeading,
-} from '@rspress/core/theme-original';
+import { useFrontmatter } from '@rspress/core/runtime';
+import { Layout as BasicLayout, Link, FallbackHeading as OriginalFallbackHeading } from '@rspress/core/theme-original';
 
 import './index.css';
 
