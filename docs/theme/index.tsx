@@ -4,7 +4,7 @@ import GithubStars from '../components/GithubStars';
 import QueryClientWrapper from '../components/QueryClientWrapper';
 import SignIn from '../components/SignIn';
 
-import { useFrontmatter } from '@rspress/core/runtime';
+import { NoSSR, useFrontmatter } from '@rspress/core/runtime';
 import {
   Banner,
   Layout as BasicLayout,
@@ -79,13 +79,17 @@ const Layout = () => {
     <QueryClientWrapper>
       <BasicLayout
         afterNavMenu={<NavExtras />}
-        beforeNav={
-          <Banner
-            href='/blog/2025-12-31-similar-transactions'
-            message='🎉 Read the latest blog post about similar transactions'
-            storageKey='monetr-launched-january-2025'
-          />
-        }
+        // TODO This renders weird on custom pages, causing a brief flash.
+        // beforeNav={
+        //   <NoSSR>
+        //     <Banner
+        //       display={typeof window !== 'undefined'}
+        //       href='/blog/2025-12-31-similar-transactions'
+        //       message='🎉 Read the latest blog post about similar transactions'
+        //       storageKey='monetr-launched-january-2025'
+        //     />
+        //   </NoSSR>
+        // }
         bottom={<Footer />}
         navTitle={<NavTitle />}
       />

@@ -19,11 +19,17 @@ import { SKIP, visit } from 'unist-util-visit';
 function isMathCodeBlock(node: Element): boolean {
   const props = node.properties;
   // rspress/Shiki uses raw HTML attribute names (lang) not HAST convention (dataLang)
-  if (props.dataLang === 'math' || props['data-lang'] === 'math' || props.lang === 'math') return true;
+  if (props.dataLang === 'math' || props['data-lang'] === 'math' || props.lang === 'math') {
+    return true;
+  }
   const code = node.children.find((c): c is Element => c.type === 'element' && c.tagName === 'code');
-  if (!code) return false;
+  if (!code) {
+    return false;
+  }
   const codeProps = code.properties;
-  if (codeProps.dataLang === 'math' || codeProps['data-lang'] === 'math' || codeProps.lang === 'math') return true;
+  if (codeProps.dataLang === 'math' || codeProps['data-lang'] === 'math' || codeProps.lang === 'math') {
+    return true;
+  }
   const classes = codeProps.className || codeProps.class;
   if (Array.isArray(classes)) {
     return classes.some(c => typeof c === 'string' && c.includes('language-math'));
@@ -35,19 +41,29 @@ function isMathCodeBlock(node: Element): boolean {
 }
 
 function extractText(node: Nodes): string {
-  if (node.type === 'text') return node.value;
-  if ('children' in node) return node.children.map(extractText).join('');
+  if (node.type === 'text') {
+    return node.value;
+  }
+  if ('children' in node) {
+    return node.children.map(extractText).join('');
+  }
   return '';
 }
 
 export default function rehypeMathPostProcess() {
   return (tree: Root) => {
     visit(tree, 'element', (node, index, parent) => {
-      if (node.tagName !== 'pre' || index === undefined || !parent) return;
-      if (!isMathCodeBlock(node)) return;
+      if (node.tagName !== 'pre' || index === undefined || !parent) {
+        return;
+      }
+      if (!isMathCodeBlock(node)) {
+        return;
+      }
 
       const latex = extractText(node).trim();
-      if (!latex) return;
+      if (!latex) {
+        return;
+      }
 
       try {
         const html = katex.renderToString(latex, {

@@ -152,7 +152,7 @@
     },
     "includes": [
       "interface/**",
-      "docs/src/**",
+      "docs/**",
       "emails/src/**",
       "stories/**",
       "!**/*.html",
