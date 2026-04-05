@@ -1,7 +1,7 @@
 name: Docs testing
 
 on:
-  workflow_trigger:
+  workflow_dispatch:
 
 jobs:
   docs:
