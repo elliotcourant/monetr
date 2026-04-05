@@ -8,7 +8,6 @@ author: Elliot Courant
 sidebar: false
 outline: false
 noFallbackHeading: true
-pageType: doc-wide
 ---
 
 import BlogHeader from '@monetr/docs/components/Blog/BlogHeader';
@@ -96,8 +95,8 @@ pos debit caribou coffee north branch
 
 Overall this is what is happening:
 1. Split the string by non-word characters.
-2. Throw out any words that are purely numeric or contain no vowels, these are usually pieces of information that are not
-   valuable anyway.
+2. Throw out any words that are purely numeric or contain no vowels, these are usually pieces of information that are
+   not valuable anyway.
 3. Throw out any words from a "drop word" lookup table, this table (as mentioned above) removes words that are
    universally considered low value regardless of context. Such as `null` or `inc`.
 4. Throw out any words from a state lookup table, this lookup table will remove words that are in a list of state 2
