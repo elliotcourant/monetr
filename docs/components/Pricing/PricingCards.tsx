@@ -1,4 +1,5 @@
 import { ArrowRight, CircleCheck } from 'lucide-react';
+import { Link } from '@rspress/core/theme-original';
 
 export default function PricingCards(): JSX.Element {
   return (
@@ -20,12 +21,12 @@ export default function PricingCards(): JSX.Element {
             <span className=''>Community Support</span>
           </li>
         </ul>
-        <a
+        <Link
           className='block px-8 py-3 text-md font-semibold text-center text-gray-100 transition duration-100 bg-white rounded-lg outline-none bg-opacity-10 hover:bg-opacity-20 md:text-base no-underline'
           href='/documentation/install'
         >
           Get Started Now
-        </a>
+        </Link>
       </div>
 
       <div className='w-full p-6 rounded-lg shadow-xl md:w-1/2 bg-gradient-to-br from-monetr-brand to-purple-400 md:p-8'>
@@ -60,13 +61,13 @@ export default function PricingCards(): JSX.Element {
             <span className=''>Email Support</span>
           </li>
         </ul>
-        <a
+        <Link
           className='inline-flex w-full items-center justify-center gap-2 px-8 py-3 text-md font-semibold text-white transition duration-100 bg-white rounded-lg outline-none bg-opacity-10 hover:bg-opacity-20 md:text-base no-underline'
           href='https://my.monetr.app/register'
         >
           Try Free for 30 Days
           <ArrowRight />
-        </a>
+        </Link>
       </div>
     </div>
   );

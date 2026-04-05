@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { Link } from '@rspress/core/theme-original';
 
 interface GithubRepoResponse {
   id: number;
@@ -21,7 +22,7 @@ export default function GithubStars(): JSX.Element {
       : undefined;
 
   return (
-    <a href='https://github.com/monetr/monetr' rel='noreferrer' target='_blank'>
+    <Link href='https://github.com/monetr/monetr' rel='noreferrer' target='_blank'>
       <div className='group h-[33.5px] hidden sm:flex shrink-0 flex-row items-center rounded-lg border border-dark-monetr-border overflow-hidden transition-opacity'>
         <div className='py-1 px-1 bg-zinc-800'>
           <svg
@@ -43,6 +44,6 @@ export default function GithubStars(): JSX.Element {
           )}
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

@@ -1,5 +1,6 @@
 import type React from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Link } from '@rspress/core/theme-original';
 
 interface FeatureProps {
   title: React.ReactNode;
@@ -23,14 +24,14 @@ export default function Feature(props: FeatureProps): JSX.Element {
         {props.description && props.description}
       </div>
       {props.link && (
-        <a
+        <Link
           className='w-full bottom-0 block px-8 py-3 text-md font-semibold text-center text-gray-100 transition duration-100 bg-white outline-none bg-opacity-10 hover:bg-opacity-20 md:text-base no-underline'
           href={props.link}
           rel={props.linkExternal ? 'noreferrer' : undefined}
           target={props.linkExternal ? '_blank' : undefined}
         >
           {props.linkText ?? 'Learn More'}
-        </a>
+        </Link>
       )}
     </div>
   );

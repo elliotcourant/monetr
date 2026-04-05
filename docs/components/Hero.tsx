@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from '@rspress/core/theme-original';
 
 import Expenses from '@monetr/docs/components/Features/Expenses';
 import FileUpload from '@monetr/docs/components/Features/FileUpload';
@@ -36,19 +37,19 @@ export default function Hero(): JSX.Element {
         </div>
 
         <div className='flex flex-col sm:flex-row gap-4'>
-          <a
+          <Link
             className='flex-none inline-flex items-center gap-2 rounded-md bg-purple-500 px-3.5 py-2.5 font-semibold text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 text-xl no-underline'
             href='https://my.monetr.app/register'
           >
             Try Free for 30 Days
             <ArrowRight />
-          </a>
-          <a
+          </Link>
+          <Link
             className='rounded-md block py-2.5 px-3.5 font-semibold text-center text-white transition duration-100 bg-white outline-none bg-opacity-10 hover:bg-opacity-20 backdrop-blur-sm text-xl no-underline'
             href='/documentation/use/getting_started'
           >
             Learn More
-          </a>
+          </Link>
         </div>
 
         <ScreenshotCarousel />

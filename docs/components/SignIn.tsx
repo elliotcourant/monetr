@@ -1,8 +1,9 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from '@rspress/core/theme-original';
 
 export default function SignIn(): JSX.Element {
   return (
-    <a
+    <Link
       className='btn-sm hidden sm:block text-slate-300 hover:text-white transition duration-150 ease-in-out group relative no-underline'
       href='https://my.monetr.app/'
     >
@@ -10,6 +11,6 @@ export default function SignIn(): JSX.Element {
         Sign In
         <ArrowRight className='size-5' />
       </span>
-    </a>
+    </Link>
   );
 }

@@ -30,6 +30,7 @@ import { format, parse } from 'date-fns';
 import { ArrowRight } from 'lucide-react';
 
 import { usePages } from '@rspress/core/runtime';
+import { Link } from '@rspress/core/theme-original';
 
 export default function BlogIndex(): JSX.Element {
   const { pages } = usePages();
@@ -56,7 +57,7 @@ export default function BlogIndex(): JSX.Element {
       </div>
       <div className='flex m-view-width mx-auto justify-center flex-wrap'>
         {blogPages.map(page => (
-          <a
+          <Link
             className='block mb-8 group flex-shrink-0 w-full lg:w-1/2 p-2 no-underline text-inherit'
             href={page.routePath}
             key={page.routePath}
@@ -97,7 +98,7 @@ export default function BlogIndex(): JSX.Element {
                 </span>
               ) : null}
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

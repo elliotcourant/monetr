@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+import { Link } from '@rspress/core/theme-original';
+
 interface CardProps {
   title: string;
   href: string;
@@ -10,7 +12,7 @@ interface CardProps {
 
 function Card({ title, href, icon, children, arrow }: CardProps) {
   return (
-    <a
+    <Link
       className='block p-4 rounded-lg border border-zinc-700 hover:border-zinc-500 transition-colors bg-black bg-opacity-20 backdrop-blur-sm no-underline text-inherit'
       href={href}
     >
@@ -20,7 +22,7 @@ function Card({ title, href, icon, children, arrow }: CardProps) {
         {arrow && <span className='ml-1'>&rarr;</span>}
       </h3>
       {children && <p className='text-sm text-zinc-400 mt-1'>{children}</p>}
-    </a>
+    </Link>
   );
 }
 
