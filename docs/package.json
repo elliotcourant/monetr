@@ -11,8 +11,8 @@
   "dependencies": {
     "@fontsource-variable/inter": "5.2.8",
     "@radix-ui/react-slot": "1.2.4",
-    "@rspress/core": "2.0.6",
-    "@rspress/plugin-sitemap": "2.0.6",
+    "@rspress/core": "2.0.8",
+    "@rspress/plugin-sitemap": "2.0.8",
     "@tanstack/react-query": "5.96.2",
     "class-variance-authority": "0.7.1",
     "date-fns": "4.1.0",
